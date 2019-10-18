@@ -1,6 +1,6 @@
-package body Ejer_4 with SPARK_Mode is
+  package body Ejer_4 with SPARK_Mode is
 
-   procedure Delete(vect: in out Vector; num: in Integer; result: out Boolean) is
+   procedure Delete(vect: in out Vector; num: in Integer) is
 
    begin -- Procedure
       result := False;
@@ -17,3 +17,4 @@ package body Ejer_4 with SPARK_Mode is
    end delete;
 
 end Ejer_4;
+
