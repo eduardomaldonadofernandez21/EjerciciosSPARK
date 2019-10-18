@@ -10,7 +10,7 @@ package Ejer_1 with SPARK_Mode is
        Pre => text'Length > 0,
        Post => (for all I in text'Range =>
                   (for some J in num'Range =>
-                       text(I) /= num(J)));
+                       text(I) /= num(J) or text(I) = text'Old(I)));
 
 
    --Nivel 0 de Proof
