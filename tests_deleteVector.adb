@@ -5,17 +5,16 @@ procedure Tests_DeleteVector is
 
    procedure Test_1 is
       tester : Vector (1 .. 10) := (2,4,6,8,1,3,5,7,9,10);
-      results : Boolean;
    begin
       Put_Line(Integer'Image(tester'First));
       Put_Line("Test_1: When the vector has the numbers .................... ");
 
       for x in tester'Range loop
          Put_Line("Trying to delete " & Integer'Image(tester(x)) & "......... ");
-         Delete(tester, tester(x), results);
-         pragma Assert(results);
+         Delete(tester, tester(x));
+         pragma Assert(result);
          pragma Assert(tester(x) = 0);
-         Put_Line("Result =" & Boolean'Image(results));
+         Put_Line("Result =" & Boolean'Image(result));
       end loop;
 
       Put_Line ("OK");
@@ -24,16 +23,15 @@ procedure Tests_DeleteVector is
    procedure Test_2 is
       tester : Vector (1 .. 10) := (2,4,6,8,1,3,5,7,9,10);
       bad_tester : constant Vector (1 .. 10) := (11,22,33,44,55,66,77,88,99,100);
-      results : Boolean;
    begin
       Put_Line("Test_2: When the vector doesn't have the numbers .................... ");
 
       for x in tester'Range loop
          Put_Line("Trying to delete " & Integer'Image(tester(x)) & "......... ");
-         Delete(tester, bad_tester(x), results);
-         pragma Assert(results = False);
+         Delete(tester, bad_tester(x));
+         pragma Assert(result = False);
          pragma Assert(tester(x) /= 0);
-         Put_Line("Result =" & Boolean'Image(results));
+         Put_Line("Result =" & Boolean'Image(result));
       end loop;
 
       Put_Line ("OK");
